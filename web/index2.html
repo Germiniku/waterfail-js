@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/demo.css">
+</head>
+<body>
+    <div class="wrap js-wrap">
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="js/waterfailPlugin.js"></script>
+    <script type="text/javascript">
+        new Waterfall('js-wrap',{
+            column: 5,
+            gap: 10,
+        }).init()
+    </script>
+</body>
+</html>
