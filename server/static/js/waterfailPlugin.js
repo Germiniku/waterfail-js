@@ -4,10 +4,11 @@
         列数 column
         间隙 gap
     */
-  var Waterfall = function (wrapper, opt) {
+  var Waterfall = function (wrapper, opt, api) {
     this.oWrapper = doc.getElementsByClassName(wrapper)[0];
     this.column = opt.column;
     this.gap = opt.gap;
+    this.api = api;
     this.itemWidth =
       (this.oWrapper.offsetWidth - (this.column - 1) * this.gap) / this.column;
     //      (1200                        (5   - 1) * 10)          / 5
@@ -35,13 +36,12 @@
   };
   Waterfall.prototype.getImgData = function (pageNum) {
     var _self = this;
+    console.log(this.api);
     axios({
-      url: 'http://localhost:3000/getImages',
-      method: 'POST',
+      url: this.api.url,
+      method: this.api.method,
       data: { pageNum: pageNum },
-      header: {
-        'Content-Type': 'application/json',
-      },
+      header: this.api.headers,
     })
       .then((resp) => {
         const { data } = resp;

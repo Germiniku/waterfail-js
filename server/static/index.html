@@ -15,8 +15,13 @@
     <script type="text/javascript">
         new Waterfall('js-wrap',{
             column: 5,
-            gap: 10,
-        }).init()
+            gap: 10
+            },
+            {
+                url: 'http://localhost:3000/getImages',
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'}
+            }).init()
     </script>
 </body>
 </html>
